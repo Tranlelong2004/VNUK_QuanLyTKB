@@ -1,0 +1,29 @@
+# Ignore virtual environment
+venv/
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+
+# IDE/editor config
+.vscode/
+.idea/
+
+# MacOS & Windows hidden files
+.DS_Store
+Thumbs.db
+
+# Log & coverage
+*.log
+*.pot
+*.pyc
+.coverage
+htmlcov/
+
+# Unit test cache
+.pytest_cache/
+.cache/

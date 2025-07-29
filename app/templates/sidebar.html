@@ -1,0 +1,67 @@
+<aside class="w-64 sidebar-bg text-white flex flex-col h-full ">
+    <!-- Header -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-600">
+        <button class="text-white text-xl">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="flex items-center space-x-2">
+            <span class="text-xl font-bold text-vn-red">VN</span>
+            <span class="text-xl font-bold text-uk-blue">-</span>
+            <span class="text-xl font-bold text-uk-blue">UK</span>
+            <span class="text-sm sidebar-text">Phòng DT TKB</span>
+        </div>
+    </div>
+
+    <!-- User/Department Info -->
+    <div class="p-4">
+        <div class="flex items-center space-x-3 user-card-bg p-3 rounded-lg">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">NA</div>
+            <div>
+                <p class="font-semibold text-white">Phòng Đào Tạo</p>
+                <p class="text-sm sidebar-text">5173047</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="flex-grow py-2 overflow-y-auto">
+        <ul class="space-y-1">
+            {% for item in sidebar_items %}
+            <li>
+                <a href="{{ item.link }}" class="flex items-center justify-between px-4 py-3 mx-2 rounded-md transition-colors duration-200
+                    {% if item.active %} sidebar-active sidebar-text-active {% else %} sidebar-hover sidebar-text {% endif %}">
+                    <div class="flex items-center space-x-3">
+                        <i class="{{ item.icon }} w-5 h-5"></i>
+                        <span class="font-medium">{{ item.name }}</span>
+                    </div>
+                    {% if item.has_submenu %}
+                        {% if item.expanded %}
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        {% else %}
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        {% endif %}
+                    {% endif %}
+                </a>
+                {% if item.has_submenu and item.expanded %}
+                    <ul class="ml-6 mt-2 space-y-1">
+                        {% for sub_item in item.submenu_items %}
+                        <li>
+                            <a href="{{ sub_item.link }}" class="flex items-center px-4 py-2 mx-2 rounded-md text-sm sidebar-text sidebar-hover transition-colors duration-200">
+                                <span>{{ sub_item.name }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+
+    <!-- Footer -->
+    <div class="p-4 border-t border-gray-600">
+        <div class="text-xs sidebar-text text-center">
+            © 2024 VNUK
+        </div>
+    </div>
+</aside>

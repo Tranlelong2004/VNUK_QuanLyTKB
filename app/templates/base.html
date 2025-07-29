@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Block 'title' cho phép các trang con thay đổi tiêu đề -->
+    <title>{% block title %}Phòng DT TKB{% endblock %}</title>
+    <!-- Link Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Link Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Màu sắc tùy chỉnh cho sidebar */
+        .sidebar-bg { background-color: #1E293B; }
+        .sidebar-active { background-color: #3B82F6; }
+        .sidebar-hover:hover { background-color: #34495e; }
+        .user-card-bg { background-color: #34495e; }
+        .sidebar-text { color: #bdc3c7; }
+        .sidebar-text-active { color: #ffffff; }
+        .text-vn-red { color: #b30000; }
+        .text-uk-blue { color: #3B82F6; }
+    </style>
+</head>
+<body class="font-sans flex h-screen overflow-hidden">
+    <!-- Sidebar được chèn vào đây -->
+    {% include 'sidebar.html' %}
+
+    <!-- Vùng nội dung chính của trang -->
+    <main class="flex-grow bg-gray-100 p-6 overflow-y-auto">
+        <!-- Block 'content' là nơi các trang con sẽ điền nội dung riêng của chúng -->
+        {% block content %}
+        <!-- Nội dung mặc định hoặc trống -->
+        {% endblock %}
+    </main>
+</body>
+</html>

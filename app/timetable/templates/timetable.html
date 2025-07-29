@@ -1,0 +1,153 @@
+<!-- Kế thừa từ base.html -->
+{% extends 'base.html' %}
+
+<!-- Ghi đè block 'title' để đặt tiêu đề riêng cho trang timetable -->
+{% block title %}Thời khóa biểu{% endblock %}
+
+<!-- Ghi đè block 'content' để đặt nội dung chính của timetable -->
+{% block content %}
+    <h1 class="text-2xl font-bold mb-2">Xem thời khóa biểu</h1>
+    <p class="text-gray-600 mb-6">Quản lý và theo dõi lịch học của bạn</p>
+
+    <!-- Phần tìm kiếm và lọc -->
+    <div class="bg-white p-4 rounded-lg shadow-sm mb-6 flex items-center space-x-4">
+        <div class="flex-grow">
+            <label for="search" class="sr-only">Tìm kiếm</label>
+            <input type="text" id="search" placeholder="Tìm kiếm..." class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+            <label for="status" class="sr-only">Trạng thái</label>
+            <select id="status" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>Tất cả</option>
+                <option>Đã duyệt</option>
+                <option>Chờ duyệt</option>
+            </select>
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Lọc</button>
+    </div>
+
+    <!-- Phần Tabs -->
+    <div class="flex border-b border-gray-200 mb-6">
+        <button class="px-4 py-2 text-blue-600 border-b-2 border-blue-600 font-medium">TẤT CẢ HỌC VIÊN</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-blue-600">THỨ TRONG TUẦN</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-blue-600">MÔN HỌC/HỌC PHẦN</button>
+        <button class="px-4 py-2 text-gray-600 hover:text-blue-600">THỨ TỰ BUỔI HỌC</button>
+    </div>
+
+    <!-- Phần Bảng -->
+    <div class="bg-white p-4 rounded-lg shadow-sm mb-6 overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><input type="checkbox"></th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mã Khoa</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên học phần</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên giảng viên</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Lịch học</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Mã lớp</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loại</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox"></td>
+                    <td class="px-6 py-4 whitespace-nowrap">MIS</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Pháp luật đại cương</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lê Thị Liên</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Thứ 7 tiết 1-2</td>
+                    <td class="px-6 py-4 whitespace-nowrap">305_A01</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lý thuyết</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox"></td>
+                    <td class="px-6 py-4 whitespace-nowrap">ABC</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Pháp luật đại cương</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lê Thị Liên</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Thứ 7 tiết 1-2</td>
+                    <td class="px-6 py-4 whitespace-nowrap">305_A01</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lý thuyết</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox"></td>
+                    <td class="px-6 py-4 whitespace-nowrap">TMDT</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Pháp luật đại cương</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lê Thị Liên</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Thứ 7 tiết 1-2</td>
+                    <td class="px-6 py-4 whitespace-nowrap">305_A01</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lý thuyết</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox"></td>
+                    <td class="px-6 py-4 whitespace-nowrap">KDQT</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Pháp luật đại cương</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lê Thị Liên</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Thứ 7 tiết 1-2</td>
+                    <td class="px-6 py-4 whitespace-nowrap">305_A01</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Lý thuyết</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Phần Lịch phòng học -->
+    <div class="bg-white p-4 rounded-lg shadow-sm">
+        <h2 class="text-xl font-bold mb-4 flex items-center space-x-2">
+            <i class="fas fa-building text-blue-600"></i>
+            <span>LỊCH PHÒNG HỌC</span>
+            <span class="text-sm text-gray-500 ml-2">404, PHÒNG THƯỜNG</span>
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giờ/Ngày</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Chủ nhật</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ hai</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ ba</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ tư</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ năm</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ sáu</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thứ bảy</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium">07:00</td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="bg-blue-100 text-blue-800 p-2 rounded-md text-sm">
+                                <p class="font-semibold">Pháp luật đại cương</p>
+                                <p class="text-xs">Lê Thị Liên</p>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium">08:00</td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap font-medium">09:00</td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                        <td class="px-6 py-4 whitespace-nowrap"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

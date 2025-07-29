@@ -1,1 +1,7 @@
-git pull origin develop
+# Các thư viện cần import
+Flask-WTF
+WTForms
+
+# Sau đó sài lệnh pip install -r requirements.txt để install các thư viện
+
+# (Nếu muốn phiên bản cụ thể thì ghi: Flask-WTF==1.0.1)
